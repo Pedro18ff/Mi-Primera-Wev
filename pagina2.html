@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre mí</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html">🏠 Inicio</a>
+    <a href="pagina2.html">ℹ️ Sobre mí</a>
+    <a href="#contacto">📩 Contacto</a>
+    <a href="dashboard.html">⚙️ Panel Admin</a>
+  </nav>
+
+  <main>
+    <section>
+      <h1>Sobre mí</h1>
+      <p>Hola, SoyPedro17_ff 😎 creador de contenido y editor. Bienvenido a mi sitio web.</p>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <form id="contactoForm">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" required>
+        
+        <label for="email">Correo</label>
+        <input type="email" id="email" required>
+        
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" required></textarea>
+        
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="redes">
+      <a href="https://wa.me/51994884471" target="_blank">🟢 WhatsApp</a>
+      <a href="https://www.tiktok.com/@pedro17_ff" target="_blank">🎵 TikTok</a>
+      <a href="https://www.youtube.com/channel/UCi63ur6hGrACk7F3QFqOYgQ" target="_blank">▶️ YouTube</a>
+    </div>
+    <p>© 2025 Mi Página Web - Creada por SoyPedro17_ff</p>
+  </footer>
+
+  <script>
+    document.getElementById("contactoForm").addEventListener("submit", e => {
+      e.preventDefault();
+      let nombre = document.getElementById("nombre").value;
+      alert(`Gracias por tu mensaje, ${nombre}!`);
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

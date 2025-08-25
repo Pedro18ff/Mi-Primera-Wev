@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Admin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html">🏠 Inicio</a>
+    <a href="pagina2.html">ℹ️ Sobre mí</a>
+    <a href="pagina2.html#contacto">📩 Contacto</a>
+    <a href="dashboard.html">⚙️ Panel Admin</a>
+  </nav>
+
+  <main>
+    <h1>Panel de Administración</h1>
+
+    <section>
+      <h2>Subir archivos</h2>
+      <form id="uploadForm">
+        <input type="file" id="fileInput" multiple accept="image/*,video/*">
+        <button type="submit">Subir</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Galería 3D</h2>
+      <div id="galeria" class="galeria"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="redes">
+      <a href="https://wa.me/51994884471" target="_blank">🟢 WhatsApp</a>
+      <a href="https://www.tiktok.com/@pedro17_ff" target="_blank">🎵 TikTok</a>
+      <a href="https://www.youtube.com/channel/UCi63ur6hGrACk7F3QFqOYgQ" target="_blank">▶️ YouTube</a>
+    </div>
+    <p>© 2025 Mi Página Web - Creada por Ti</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("uploadForm");
+    const input = document.getElementById("fileInput");
+    const galeria = document.getElementById("galeria");
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const files = input.files;
+      for (let file of files) {
+        const url = URL.createObjectURL(file);
+        const card = document.createElement("div");
+        card.className = "card3d";
+
+        if (file.type.startsWith("image")) {
+          const img = document.createElement("img");
+          img.src = url;
+          img.alt = file.name;
+          card.appendChild(img);
+        } else if (file.type.startsWith("video")) {
+          const video = document.createElement("video");
+          video.src = url;
+          video.controls = true;
+          card.appendChild(video);
+        }
+        galeria.appendChild(card);
+      }
+      input.value = "";
+    });
+  </script>
+</body>
+</html>
